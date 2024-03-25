@@ -59,7 +59,6 @@ require "config.php";
                     <td><button class="boton" onclick="borrarArchivo('<?php echo $nombreArchivo; ?>')">Borrar</button></td>
                 </tr>
                 <?php } ?>
-
             </table>
         </div>
     </div>

@@ -56,7 +56,6 @@ require "config.php";
                     <td><?php echo $tamañoArchivoKB; ?> KB</td>
                 </tr>
                 <?php } ?>
-
             </table>
         </div>
     </div>
