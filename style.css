@@ -16,6 +16,11 @@ body {
     align-items: center;
     justify-content: center;
 }
+.different{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
 .formLogin {
     background-color: #ffffffce;
     border: 4px #108373 solid;
@@ -42,6 +47,17 @@ body {
     margin: 30px;
     background-color: transparent;
 }
+.administrador {
+    background-color: #ffffffa8;
+    border: 4px #108373 solid;
+    width: 95%;
+}
+.logoutBtn {
+    width: 95%;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+}
 .boton {
     height: 40px;
     width: 250px;
@@ -54,3 +70,16 @@ body {
 .boton:hover {
     background-color: #b1eee6;
 }
+table {
+    border-collapse: collapse;
+    width: 70%;
+}
+th, td {
+    border: 2px solid black;
+    padding: 8px;
+    text-align: center;
+}
+th {
+    background-color: #60b1a6;
+}
+

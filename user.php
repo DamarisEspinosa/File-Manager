@@ -9,10 +9,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <title>Usuario</title>
 </head>
-<body>
-    <h1>Bienvenido Usuario</h1>
-    <form action="logout.php" method="post">
-        <button type="submit">Cerrar sesión</button>
-    </form>
+<body class="different">
+    <div class="logoutBtn">
+        <form action="logout.php" method="post">
+            <button class="boton" type="submit">Cerrar sesión</button>
+        </form>
+    </div>
+    <div class="administrador">
+        <h1>Bienvenido Usuario</h1>
+        <button class="boton" id="list">Listar archivos</button>
+        <button class="boton" id="show">Mostrar archivo</button>
+    </div>
 </body>
 </html>
