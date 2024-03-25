@@ -37,7 +37,6 @@ require "config.php";
         <h1>Bienvenido Administrador</h1>
         <button class="boton" id="list" onclick="mostrarTabla()">Listar archivos</button>
         <button class="boton" id="upload">Subir archivo</button>
-        <button class="boton" id="delete">Borrar archivo</button>
         <br>
         <div class="table" id="tablaArchivos" style="display: none;">
             <?php
@@ -57,7 +56,7 @@ require "config.php";
                 <tr>
                     <td><a href='mostrar_archivo.php?nombre=<?php echo $nombreArchivo; ?>' target='_blank'><?php echo $nombreArchivo; ?></a></td>
                     <td><?php echo $tamañoArchivoKB; ?> KB</td>
-                    <td><button onclick="borrarArchivo('<?php echo $nombreArchivo; ?>')">Borrar</button></td>
+                    <td><button class="boton" onclick="borrarArchivo('<?php echo $nombreArchivo; ?>')">Borrar</button></td>
                 </tr>
                 <?php } ?>
 
