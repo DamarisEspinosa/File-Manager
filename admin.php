@@ -12,6 +12,20 @@ require "config.php";
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <title>Administrador</title>
+    <script>
+        function mostrarTabla() {
+            var tabla = document.getElementById("tablaArchivos");
+            if (tabla.style.display === "none") {
+                tabla.style.display = "block";
+            } else {
+                tabla.style.display = "none";
+            }
+        }
+
+        function borrarArchivo(nombreArchivo) {
+            alert("Borrando archivo: " + nombreArchivo);
+        }
+    </script>
 </head>
 <body class="different">
     <div class="logoutBtn">
@@ -21,11 +35,11 @@ require "config.php";
     </div>
     <div class="administrador">
         <h1>Bienvenido Administrador</h1>
-        <button class="boton" id="list">Listar archivos</button>
+        <button class="boton" id="list" onclick="mostrarTabla()">Listar archivos</button>
         <button class="boton" id="upload">Subir archivo</button>
         <button class="boton" id="delete">Borrar archivo</button>
         <br>
-        <div class="table">
+        <div class="table" id="tablaArchivos" style="display: none;">
             <?php
             $archivos = glob(DIR_UPLOAD . "*");
             ?>
@@ -41,9 +55,9 @@ require "config.php";
                     $tamañoArchivoKB = round(filesize($archivo) / 1024, 2);
                 ?>
                 <tr>
-                    <td><a href='mostrar_archivo.php?nombre=$nombreArchivo' target='_blank'><?php echo $nombreArchivo; ?></a></td>
+                    <td><a href='mostrar_archivo.php?nombre=<?php echo $nombreArchivo; ?>' target='_blank'><?php echo $nombreArchivo; ?></a></td>
                     <td><?php echo $tamañoArchivoKB; ?> KB</td>
-                    <td><button onclick="borrarArchivo('$nombreArchivo')\">Borrar</button></td>
+                    <td><button onclick="borrarArchivo('<?php echo $nombreArchivo; ?>')">Borrar</button></td>
                 </tr>
                 <?php } ?>
 

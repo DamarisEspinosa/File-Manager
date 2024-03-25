@@ -51,6 +51,8 @@ body {
     background-color: #ffffffa8;
     border: 4px #108373 solid;
     width: 95%;
+    padding: 40px; 
+    margin: 0 auto; 
 }
 .logoutBtn {
     width: 95%;
@@ -72,7 +74,7 @@ body {
 }
 table {
     border-collapse: collapse;
-    width: 70%;
+    width: 100%;
 }
 th, td {
     border: 2px solid black;
