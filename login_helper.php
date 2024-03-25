@@ -62,7 +62,11 @@ function autentificar($username, $password) {
 
 $autenticarUsuario = autentificar($username, $password);
 if($autenticarUsuario) {
-    header("Location:index.php");
+    if($username == "admin") {
+        header("Location:admin.php");
+    } else if($username == "user01") {
+        header("Location:user.php");
+    }
     exit;
 } else {
     header("Location: login.php?error=1");
