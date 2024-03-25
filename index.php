@@ -11,5 +11,8 @@
 </head>
 <body>
     <h1>Bienvenido</h1>
+    <form action="logout.php" method="post">
+        <button type="submit">Cerrar sesión</button>
+    </form>
 </body>
 </html>

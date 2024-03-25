@@ -1,10 +1,10 @@
 <?php
 
 // Root de la aplicación a partir de http://localhost/
-define("APP_ROOT", "/pwe2024/practica06/");
+define("APP_ROOT", "/File-Manager/a/");
 
 // Ruta física de la aplicación
-define("APP_PATH", "C:/wamp64/www/pwe2024/practica06/");
+define("APP_PATH", "C:/wamp64/htdocs/File-Manager/");
 
 // Directorio donde se van a subir los archivos
 define("DIR_UPLOAD", "C:/wamp64/archivos_subidos/");
