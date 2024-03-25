@@ -24,7 +24,7 @@ require "config.php";
         function borrarArchivo(boton, nombreArchivo) {
             if (confirm("¿Está seguro que desea borrar " + nombreArchivo + "?")) {
                 var xhr = new XMLHttpRequest();
-                xhr.open("POST", "borrar_archivo.php", true);
+                xhr.open("POST", "operaciones/borrar_archivo.php", true);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState === 4 && xhr.status === 200) {
@@ -43,7 +43,7 @@ require "config.php";
 
         function actualizarTablaArchivos() {
             var xhr = new XMLHttpRequest();
-            xhr.open("GET", "actualizar_archivos.php", true);
+            xhr.open("GET", "operaciones/actualizar_archivos.php", true);
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     document.getElementById("tablaArchivos").innerHTML = xhr.responseText;
@@ -80,7 +80,7 @@ require "config.php";
                     $tamañoArchivoKB = round(filesize($archivo) / 1024, 2);
                 ?>
                 <tr>
-                    <td><a href='mostrar_archivo.php?nombre=<?php echo $nombreArchivo; ?>' target='_blank'><?php echo $nombreArchivo; ?></a></td>
+                    <td><a href='operaciones/mostrar_archivo.php?nombre=<?php echo $nombreArchivo; ?>' target='_blank'><?php echo $nombreArchivo; ?></a></td>
                     <td><?php echo $tamañoArchivoKB; ?> KB</td>
                     <td><button class="boton" onclick="borrarArchivo(this.parentNode.parentNode, '<?php echo $nombreArchivo; ?>')">Borrar</button></td>
                 </tr>

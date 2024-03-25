@@ -1,5 +1,5 @@
 <?php
-require "config.php";
+require "../config.php";
 
 if(isset($_GET['nombre'])) {
     $nombreArchivo = basename($_GET['nombre']);
