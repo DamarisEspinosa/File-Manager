@@ -48,11 +48,15 @@ body {
     background-color: transparent;
 }
 .administrador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #ffffffa8;
     border: 4px #108373 solid;
     width: 95%;
     padding: 40px; 
-    margin: 0 auto; 
+    margin: 10px auto; 
+    border-radius: 20px;
 }
 .logoutBtn {
     width: 95%;
@@ -72,6 +76,12 @@ body {
 .boton:hover {
     background-color: #b1eee6;
 }
+.botones {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+}
 table {
     border-collapse: collapse;
     width: 100%;
@@ -84,4 +94,25 @@ th, td {
 th {
     background-color: #60b1a6;
 }
-
+.formArchivos form {
+    border: 2px solid #108373;
+    padding: 5px; 
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height:250px;
+    width: 350px;
+    margin-top: 30px;
+    border-radius: 30px;
+}
+.formArchivos input {
+    height: 30px;
+    width: 300px;
+    text-align: center;
+    border: #108373 2px solid;
+    border-radius: 25px;
+    margin: 10px;
+    background-color: transparent;
+}

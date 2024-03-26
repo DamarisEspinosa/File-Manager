@@ -1,4 +1,6 @@
 function mostrarTabla() {
+    var forms = document.getElementById("containerForm");
+    forms.style.display = "none";
     var tabla = document.getElementById("tablaArchivos");
     if (tabla.style.display === "none") {
         tabla.style.display = "block";
@@ -7,6 +9,8 @@ function mostrarTabla() {
     }
 }
 function mostrarForm() {
+    var tabla = document.getElementById("tablaArchivos");
+    tabla.style.display = "none";
     var forms = document.getElementById("containerForm");
     if(forms.style.display === "none") {
         forms.style.display = "block";
@@ -43,6 +47,7 @@ function subirArchivo() {
             actualizarTablaArchivos(); 
             alert("El archivo se ha subido");
             mostrarForm();
+            form.reset();
         }
     };
     xhr.send(formData);

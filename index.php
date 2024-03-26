@@ -1,5 +1,10 @@
 <?php
 require "config.php";
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header('Location: login.php');
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,8 +25,10 @@ require "config.php";
     </div>
     <div class="administrador">
         <h1>Bienvenido Administrador</h1>
-        <button class="boton" id="list" onclick="mostrarTabla()">Listar archivos</button>
-        <button class="boton" id="upload" onclick="mostrarForm()">Subir archivo</button>
+        <div class ="botones">
+            <button class="boton" id="list" onclick="mostrarTabla()">Listar archivos</button>
+            <button class="boton" id="upload" onclick="mostrarForm()">Subir archivo</button>
+        </div>
         <br>
         <div class="table" id="tablaArchivos" style="display: none;">
             <?php
@@ -46,10 +53,10 @@ require "config.php";
                 <?php } ?>
             </table>
         </div>
-        <div class="formLogin" style="display: none;" id="containerForm">
+        <div class="formArchivos" style="display: none;" id="containerForm">
             <form id="formSubirArchivo" enctype="multipart/form-data">
-                <input class="texto" type="text" name="nombreArchivo" placeholder="Nombre del archivo (opcional)">
-                <input class="texto" type="file" name="archivo" accept=".jpg, .jpeg, .png, .gif, .pdf">
+                <input type="text" name="nombreArchivo" placeholder="Nombre del archivo (opcional)">
+                <input type="file" name="archivo" accept=".jpg, .jpeg, .png, .gif, .pdf">
                 <button class="boton" type="button" onclick="subirArchivo()">Subir archivo</button>
             </form>
         </div>

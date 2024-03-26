@@ -15,7 +15,7 @@
             <h1>Bienvenido</h1>
             <input class="texto" type="text" id="username" name="username" placeholder="Ingrese el nombre de usuario">
             <input class="texto" type="password" id="password" name="password" placeholder="Ingrese la contraseña">
-            <input class="boton" type="submit">
+            <input class="boton" type="submit" value="Iniciar sesión">
         </form>
     </div>
 </body>
