@@ -52,7 +52,7 @@ require "config.php";
                     $tamañoArchivoKB = round(filesize($archivo) / 1024, 2);
                 ?>
                 <tr>
-                    <td><a href='mostrar_archivo.php?nombre=<?php echo $nombreArchivo; ?>' target='_blank'><?php echo $nombreArchivo; ?></a></td>
+                    <td><a href='operaciones/mostrar_archivo.php?nombre=<?php echo $nombreArchivo; ?>' target='_blank'><?php echo $nombreArchivo; ?></a></td>
                     <td><?php echo $tamañoArchivoKB; ?> KB</td>
                 </tr>
                 <?php } ?>

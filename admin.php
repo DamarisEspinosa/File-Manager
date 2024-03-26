@@ -1,7 +1,6 @@
 <?php
 require "config.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,46 +11,6 @@ require "config.php";
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <title>Administrador</title>
-    <script>
-        function mostrarTabla() {
-            var tabla = document.getElementById("tablaArchivos");
-            if (tabla.style.display === "none") {
-                tabla.style.display = "block";
-            } else {
-                tabla.style.display = "none";
-            }
-        }
-        function borrarArchivo(boton, nombreArchivo) {
-            if (confirm("¿Está seguro que desea borrar " + nombreArchivo + "?")) {
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "operaciones/borrar_archivo.php", true);
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
-                        if (xhr.responseText === "success") {
-                            boton.parentElement.parentElement.remove();
-                            actualizarTablaArchivos(); // Llama a una función para actualizar la tabla
-                            alert("El archivo " + nombreArchivo + " ha sido eliminado correctamente.");
-                        } else {
-                            alert("Error al borrar el archivo: " + xhr.responseText);
-                        }
-                    }
-                };
-                xhr.send("nombre=" + encodeURIComponent(nombreArchivo));
-            }
-        }
-
-        function actualizarTablaArchivos() {
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "operaciones/actualizar_archivos.php", true);
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    document.getElementById("tablaArchivos").innerHTML = xhr.responseText;
-                }
-            };
-            xhr.send();
-        }
-    </script>
 </head>
 <body class="different">
     <div class="logoutBtn">
@@ -62,7 +21,7 @@ require "config.php";
     <div class="administrador">
         <h1>Bienvenido Administrador</h1>
         <button class="boton" id="list" onclick="mostrarTabla()">Listar archivos</button>
-        <button class="boton" id="upload">Subir archivo</button>
+        <button class="boton" id="upload" onclick="mostrarForm()">Subir archivo</button>
         <br>
         <div class="table" id="tablaArchivos" style="display: none;">
             <?php
@@ -87,6 +46,14 @@ require "config.php";
                 <?php } ?>
             </table>
         </div>
+        <div class="formLogin" style="display: none;" id="containerForm">
+            <form id="formSubirArchivo" enctype="multipart/form-data">
+                <input class="texto" type="text" name="nombreArchivo" placeholder="Nombre del archivo (opcional)">
+                <input class="texto" type="file" name="archivo" accept=".jpg, .jpeg, .png, .gif, .pdf">
+                <button class="boton" type="button" onclick="subirArchivo()">Subir archivo</button>
+            </form>
+        </div>
     </div>
+    <script src="logic.js"></script>
 </body>
 </html>
